@@ -2,6 +2,8 @@
 #include "CppUnitTest.h"
 #include "../ADS_2023_CA2_A_S_App/Tree.h"
 #include "../ADS_2023_CA2_A_S_App/TreeIterator.h"
+#include "../ADS_2023_CA2_A_S_App/XMLValidation.cpp"
+using namespace std;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -421,5 +423,40 @@ namespace ADS2023CA2ASTests
 			}
 			iter.childStart();
 		}
+
+		TEST_METHOD(ValidXmlFileTest)
+		{
+			// Provide the path to a valid XML file
+			string filename = "XML.xml";
+
+			// Load XML data into a tree
+			Tree<string>* filesystemTree = loadXmlData(filename);
+
+			// Assert that the loaded tree is not null
+			Assert::IsNotNull(filesystemTree);
+
+			// Cleanup: Implement a function to delete the tree nodes
+			// ...
+
+			// Assert any other specific conditions as needed
+		}
+
+		TEST_METHOD(InvalidXmlFileTest)
+		{
+			// Provide the path to an invalid XML file
+			string filename = "abc.xml";
+
+			// Load XML data into a tree
+			Tree<string>* filesystemTree = loadXmlData(filename);
+
+			// Assert that the loaded tree is null for an invalid XML
+			Assert::IsNull(filesystemTree);
+
+			// Cleanup: Implement a function to delete the tree nodes
+			// ...
+
+			// Assert any other specific conditions as needed
+		}
+
 	};
 }
