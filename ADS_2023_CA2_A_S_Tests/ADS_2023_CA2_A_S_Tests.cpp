@@ -13,7 +13,8 @@ namespace ADS2023CA2ASTests
 	TEST_CLASS(ADS2023CA2ASTests)
 	{
 	public:
-		
+
+		//TREE TESTS
 		TEST_METHOD(TestConstructor)
 		{
 			Tree<int> tree(1);
@@ -40,13 +41,6 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(4, tree.count());
 		}
 
-		/*
-			Helper function used to set up the tree used for testing.
-			The tree should look as follows
-			1
-			|-2           3
-			  |- 4 5 6
-		*/
 		void populateTree(Tree<int>*& root, Tree<int>*& cc2)
 		{
 			root = new Tree<int>(1);
@@ -68,10 +62,7 @@ namespace ADS2023CA2ASTests
 			c1->children->append(cc2);
 			c1->children->append(cc3);
 		}
-		/*
-			Test the resetIterator function sets list and
-			currentNode to nullptr if no tree is passed in.
-		*/
+		
 		TEST_METHOD(TestResetIteratorNullPtr)
 		{
 			TreeIterator<int> iter(nullptr);
@@ -79,11 +70,7 @@ namespace ADS2023CA2ASTests
 			Assert::IsNull(iter.childIter.currentNode);
 
 		}
-		/*
-			Tests the resetIterator sets list and
-			currentNode to nullptr if a tree with no
-			children is passed in
-		*/
+
 		TEST_METHOD(TestResetIteratorValidTreeNoChild)
 		{
 			Tree<int> t(1);
@@ -92,10 +79,7 @@ namespace ADS2023CA2ASTests
 			Assert::IsNull(iter.childIter.currentNode);
 
 		}
-		/*
-			Tests the reset iterator function sets the childIter
-			to the first child when a valid tree is passed in.
-		*/
+
 		TEST_METHOD(TestResetIteratorValidTreeWithChild)
 		{
 			Tree<int>* root = nullptr;
@@ -107,10 +91,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(2, iter.childIter.currentNode->data->data);
 
 		}
-		/*
-			Tests the root function moves the iterator to the root of the tree
-			if it is set to a leaf node, cc2.
-		*/
+
 		TEST_METHOD(TestRoot)
 		{
 			Tree<int>* root = nullptr;
@@ -123,11 +104,7 @@ namespace ADS2023CA2ASTests
 			Assert::IsNotNull(iter.node);
 			Assert::AreEqual(1, iter.node->data);
 		}
-		/*
-			Tests the up method moves up one level from a leaf node to the correct parent.
-			This test sets the iterator at 5 which has a parent of 2.
-			Also ensures resetIterator moves to the childIter to the correct child node.
-		*/
+
 		TEST_METHOD(TestUp)
 		{
 			Tree<int>* root = nullptr;
@@ -150,11 +127,7 @@ namespace ADS2023CA2ASTests
 
 
 		}
-		/*
-			Test ensures the UP function does not allow the iterator to become invalid by moving
-			up past the root. It also checks that the reset iterator is called in the event of moving up
-			past the root.
-		*/
+
 		TEST_METHOD(TestUpFromRoot)
 		{
 			Tree<int>* root = nullptr;
@@ -171,11 +144,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(1, iter.node->data);
 			Assert::AreEqual(2, iter.childIter.item()->getData());
 		}
-		/*
-			Tests the down function moves from the root down to the correct child.
-			Also tests it will move to any child node currently set by the child iterator
 
-		*/
 		TEST_METHOD(TestDownFromRoot)
 		{
 			Tree<int>* root = nullptr;
@@ -198,10 +167,7 @@ namespace ADS2023CA2ASTests
 			Assert::IsFalse(iter.childIter.isValid());
 
 		}
-		/*
-			Tests the down function does not allow the iterator become invalid if there is no
-			children of a node.
-		*/
+
 		TEST_METHOD(TestDownFromLeaf)
 		{
 			Tree<int>* root = nullptr;
@@ -217,10 +183,7 @@ namespace ADS2023CA2ASTests
 			Assert::IsFalse(iter.childIter.isValid());
 
 		}
-		/*
-			Tests the child back method will mode the child iter back to teh previous child node.
-			Tests moves the iterator to the second child and used childBack to move back to the first node.
-		*/
+
 		TEST_METHOD(TestChildBack)
 		{
 			Tree<int>* root = nullptr;
@@ -235,9 +198,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(2, iter.childIter.item()->getData());
 
 		}
-		/*
-			Tests the childForth method moves to teh next child element.
-		*/
+
 		TEST_METHOD(TestChildForth)
 		{
 			Tree<int>* root = nullptr;
@@ -250,9 +211,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(3, iter.childIter.item()->getData());
 
 		}
-		/*
-		Tests the childStart method moves to the first child element.
-		*/
+
 		TEST_METHOD(TestChildStart)
 		{
 			Tree<int>* root = nullptr;
@@ -269,9 +228,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(4, iter.childIter.item()->getData());
 
 		}
-		/*
-		Tests the childEnd method moves to the last child element.
-		*/
+
 		TEST_METHOD(TestChildEnd)
 		{
 			Tree<int>* root = nullptr;
@@ -285,9 +242,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(6, iter.childIter.item()->getData());
 
 		}
-		/*
-		Tests the append child method adds an element to the end of the child list.
-		*/
+
 		TEST_METHOD(TestAppendChild)
 		{
 			Tree<int>* root = nullptr;
@@ -302,9 +257,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(7, iter.childIter.item()->getData());
 
 		}
-		/*
-		Tests the prepend child method adds an element to the start of the child list.
-		*/
+
 		TEST_METHOD(TestPrependChild)
 		{
 			Tree<int>* root = nullptr;
@@ -318,9 +271,7 @@ namespace ADS2023CA2ASTests
 			Assert::AreEqual(7, iter.childIter.item()->getData());
 
 		}
-		/*
-		Tests the insert before child method adds an element before the item selected in the child iterator.
-		*/
+
 		TEST_METHOD(TestInsertChildBefore)
 		{
 			Tree<int>* root = nullptr;
@@ -354,9 +305,7 @@ namespace ADS2023CA2ASTests
 			}
 			iter.childStart();
 		}
-		/*
-		Tests the insert after child method adds an element after the item selected in the child iterator.
-		*/
+
 		TEST_METHOD(TestInsertChildAfter)
 		{
 			Tree<int>* root = nullptr;
@@ -390,9 +339,6 @@ namespace ADS2023CA2ASTests
 			iter.childStart();
 		}
 
-		/*
-			Tests the remove child method removes the item selected by the iterator
-		*/
 		TEST_METHOD(TestRmoveChild)
 		{
 			Tree<int>* root = nullptr;
@@ -425,21 +371,18 @@ namespace ADS2023CA2ASTests
 			iter.childStart();
 		}
 
-		// Test the trim function
-		TEST_METHOD(Trim_ValidString_ReturnsTrimmedString)
+		//XMLVALIDATION TESTS
+		TEST_METHOD(TestTrimString)
 		{
-			// Arrange
-			std::string input = "   Hello, World!   ";
-			std::string expected = "Hello, World!";
+			string input = "   Hello, World!   ";
+			string expected = "Hello, World!";
 
-			// Act
-			std::string result = trim(input);
+			string result = trim(input);
 
-			// Assert
 			Assert::AreEqual(expected, result);
 		}
 
-		//Test the loadXmlData function
+		//TEST_METHOD(TestLoadXMLData)
 		//I have no idea how to test this function
 	};
 }

@@ -15,15 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DListNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DListIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,9 +24,18 @@
     <ClInclude Include="XMLValidation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DListIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DListNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="XMLValidation.cpp">
+    <ClCompile Include="XMLTreeCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">

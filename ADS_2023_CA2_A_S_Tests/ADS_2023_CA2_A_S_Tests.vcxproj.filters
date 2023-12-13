@@ -21,7 +21,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\ADS_2023_CA2_A_S_App\XMLValidation.cpp">
+    <ClCompile Include="..\ADS_2023_CA2_A_S_App\XMLTreeCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

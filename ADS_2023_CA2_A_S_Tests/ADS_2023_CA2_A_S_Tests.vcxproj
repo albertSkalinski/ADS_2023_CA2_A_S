@@ -157,7 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\ADS_2023_CA2_A_S_App\XMLValidation.cpp" />
+    <ClCompile Include="..\ADS_2023_CA2_A_S_App\XMLTreeCreator.cpp" />
     <ClCompile Include="ADS_2023_CA2_A_S_Tests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
