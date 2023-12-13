@@ -166,6 +166,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ADS_2023_CA2_A_S_App\Tree.h" />
+    <ClInclude Include="..\ADS_2023_CA2_A_S_App\TreeIterator.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
