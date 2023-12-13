@@ -438,5 +438,8 @@ namespace ADS2023CA2ASTests
 			// Assert
 			Assert::AreEqual(expected, result);
 		}
+
+		//Test the loadXmlData function
+		//I have no idea how to test this function
 	};
 }
