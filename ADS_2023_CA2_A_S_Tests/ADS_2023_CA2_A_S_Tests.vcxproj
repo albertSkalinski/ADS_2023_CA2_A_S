@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ADS_2023_CA2_A_S_App\XMLValidation.cpp" />
     <ClCompile Include="ADS_2023_CA2_A_S_Tests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="..\ADS_2023_CA2_A_S_App\Tree.h" />
     <ClInclude Include="..\ADS_2023_CA2_A_S_App\TreeIterator.h" />
+    <ClInclude Include="..\ADS_2023_CA2_A_S_App\XMLValidation.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

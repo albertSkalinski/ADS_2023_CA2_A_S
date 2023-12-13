@@ -30,9 +30,15 @@
     <ClInclude Include="TreeIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="XMLValidation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XMLValidation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

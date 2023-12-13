@@ -132,8 +132,10 @@
     <ClInclude Include="DListNode.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="TreeIterator.h" />
+    <ClInclude Include="XMLValidation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="XMLValidation.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

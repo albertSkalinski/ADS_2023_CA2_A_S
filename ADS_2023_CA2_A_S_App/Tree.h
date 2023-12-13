@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "DList.h"
 
 template<class T>

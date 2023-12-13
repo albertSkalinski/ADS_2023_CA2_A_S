@@ -2,6 +2,8 @@
 #include "CppUnitTest.h"
 #include "../ADS_2023_CA2_A_S_App/Tree.h"
 #include "../ADS_2023_CA2_A_S_App/TreeIterator.h"
+#include "../ADS_2023_CA2_A_S_App/XMLValidation.h"
+
 using namespace std;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -421,6 +423,20 @@ namespace ADS2023CA2ASTests
 
 			}
 			iter.childStart();
+		}
+
+		// Test the trim function
+		TEST_METHOD(Trim_ValidString_ReturnsTrimmedString)
+		{
+			// Arrange
+			std::string input = "   Hello, World!   ";
+			std::string expected = "Hello, World!";
+
+			// Act
+			std::string result = trim(input);
+
+			// Assert
+			Assert::AreEqual(expected, result);
 		}
 	};
 }
