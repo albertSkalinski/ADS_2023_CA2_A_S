@@ -127,14 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ADS_2023_CA2_A_S_App.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="DList.h" />
     <ClInclude Include="DListIterator.h" />
     <ClInclude Include="DListNode.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="TreeIterator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="XMLValidation.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
