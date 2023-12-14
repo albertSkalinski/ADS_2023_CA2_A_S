@@ -46,3 +46,22 @@ int countBFS(Tree<string>* tree) {
 
     return i;
 }
+
+// Function to prune the tree and remove empty folders
+void pruneEmptyFolders(Tree<string>* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    DListIterator<Tree<string>*> iter = root->children->getIterator();
+    while (iter.isValid()) {
+        pruneEmptyFolders(iter.item()); // Recursively prune children
+
+        if (iter.item()->children->size() == 0 && iter.item()->data.empty()) {
+            iter = root->children->remove(iter); // Remove empty folder
+        }
+        else {
+            iter.advance();
+        }
+    }
+}

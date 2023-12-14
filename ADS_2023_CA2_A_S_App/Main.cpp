@@ -25,6 +25,8 @@ int main()
 
     countBFS(filesystemTree);
 
+    pruneEmptyFolders(filesystemTree);
+
 
     return 0;
 }

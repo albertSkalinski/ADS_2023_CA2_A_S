@@ -415,5 +415,19 @@ namespace ADS2023CA2ASTests
 			// Assert
 			Assert::AreEqual(158, itemCount); // Adjust the count based on the actual XML structure
 		}
+
+		TEST_METHOD(PruneEmptyFoldersInXmlTree)
+		{
+			// Arrange
+			string filename = "C:\\Users\\sKALa\\Repos\\ADS_2023_CA2_A_S\\ADS_2023_CA2_A_S_Tests\\XML.xml";
+			// Load XML data into a tree
+			Tree<string>* filesystemTree = loadXmlData(filename);
+
+			// Act
+			pruneEmptyFolders(filesystemTree);
+
+			// Assert
+			Assert::AreEqual(18, filesystemTree->count()); // Adjust the count based on the actual XML structure
+		}
 	};
 }
