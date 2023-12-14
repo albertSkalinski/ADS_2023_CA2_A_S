@@ -95,3 +95,38 @@ vector<string> findFileOrFolder(Tree<string>* root, const string& target) {
     findFileOrFolderDFS(root, target, path);
     return path;
 }
+
+void displayFolderContents(Tree<string>* node, const string& targetFolder) {
+    if (node == nullptr) {
+        return;
+    }
+
+    // Check if the current node is the target folder
+    if (node->getData() == targetFolder) {
+        std::cout << "Contents of folder '" << targetFolder << "':" << std::endl;
+
+        // Display files within the target folder
+        DListIterator<Tree<string>*> iter = node->children->getIterator();
+        while (iter.isValid()) {
+            std::cout << "  - " << iter.item()->getData();
+
+            // If it's a file, print its size
+            if (iter.item()->getData().find("file") != std::string::npos) {
+                std::cout << " (Size: " << iter.item()->data.size() << " bytes)";
+            }
+
+            std::cout << std::endl;
+
+            iter.advance();
+        }
+
+        return;
+    }
+
+    // Recursively display contents for children
+    DListIterator<Tree<string>*> iter = node->children->getIterator();
+    while (iter.isValid()) {
+        displayFolderContents(iter.item(), targetFolder);
+        iter.advance();
+    }
+}

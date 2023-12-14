@@ -38,6 +38,8 @@ int main()
     }
     cout << endl;
 
+    string targetFolder = "Documents";
+    displayFolderContents(filesystemTree, targetFolder);
 
     return 0;
 }
