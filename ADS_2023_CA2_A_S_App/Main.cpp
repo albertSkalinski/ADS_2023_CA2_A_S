@@ -13,31 +13,38 @@ using namespace std;
 
 int main() 
 {
-    // Provide the path to your XML file
     string filename = "XML.xml";
-    // Load XML data into a tree
+
     Tree<string>* filesystemTree = loadXmlData(filename);
-    // Print the tree structure
+
     printTree(filesystemTree);
+    cout << endl;
 
+    //Stage 2 a.
     int totalItems = countAllItems(filesystemTree);
+    cout << "Total number of items in the tree: " << totalItems << endl;
+    cout << endl;
 
-    cout << "Total number of items in the tree: " << totalItems << std::endl;
-
+    //Stage 2 b.
     countBFS(filesystemTree);
 
+    //Stage 2 c.
     pruneEmptyFolders(filesystemTree);
 
+    //Stage 2 d.
+    cout << endl;
+    cout << "Finding a specific file/folder: " << endl;
     string target = "pic1.jpg";
     vector<string> path = findFileOrFolder(filesystemTree, target);
-
-    // Display the path
+    
     cout << "Path for '" << target << "': ";
     for (const auto& item : path) {
         std::cout << item << "/";
     }
     cout << endl;
+    cout << endl;
 
+    //Stage 2 e.
     string targetFolder = "Downloads";
     displayFolderContents(filesystemTree, targetFolder);
 
