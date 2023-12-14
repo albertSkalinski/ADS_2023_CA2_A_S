@@ -130,11 +130,13 @@
     <ClInclude Include="DList.h" />
     <ClInclude Include="DListIterator.h" />
     <ClInclude Include="DListNode.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="TreeIterator.h" />
-    <ClInclude Include="XMLValidation.h" />
+    <ClInclude Include="XMLTreeCreator.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="XMLTreeCreator.cpp" />
   </ItemGroup>

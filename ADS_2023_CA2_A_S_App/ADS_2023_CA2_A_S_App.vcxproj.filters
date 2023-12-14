@@ -21,7 +21,7 @@
     <ClInclude Include="TreeIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="XMLValidation.h">
+    <ClInclude Include="XMLTreeCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DList.h">
@@ -33,12 +33,18 @@
     <ClInclude Include="DListNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XMLTreeCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filesystem>
+    <directory name="root">
+        <directory name="Documents">
+            <file name="document1.txt"/>
+            <file name="document2.txt"/>
+        </directory>
+        <directory name="Pictures">
+            <file name="pic1.jpg"/>
+            <file name="pic2.png"/>
+        </directory>
+        <file name="readme.txt"/>
+    </directory>
+    <directory name="Users">
+        <directory name="user1">
+            <directory name="Desktop">
+                <file name="file1.txt"/>
+                <file name="file2.txt"/>
+            </directory>
+        </directory>
+        <directory name="user2">
+            <directory name="Downloads">
+                <file name="download1.pdf"/>
+                <file name="download2.zip"/>
+            </directory>
+        </directory>
+    </directory>
+</filesystem>

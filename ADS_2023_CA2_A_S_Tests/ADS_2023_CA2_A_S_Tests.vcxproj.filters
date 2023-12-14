@@ -24,6 +24,9 @@
     <ClCompile Include="..\ADS_2023_CA2_A_S_App\XMLTreeCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\ADS_2023_CA2_A_S_App\Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\ADS_2023_CA2_A_S_App\XMLValidation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ADS_2023_CA2_A_S_App\Functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

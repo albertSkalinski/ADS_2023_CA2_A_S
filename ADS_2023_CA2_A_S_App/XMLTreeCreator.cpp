@@ -5,6 +5,7 @@
 
 #include "DList.h"
 #include "Tree.h"
+#include "XMLTreeCreator.h"
 
 using namespace std;
 
@@ -85,7 +86,7 @@ Tree<string>* loadXmlData(const string& filename) {
 }
 
 // Function to print the tree structure
-void printTree(Tree<string>* node, int depth = 0) {
+void printTree(Tree<string>* node, int depth) {
     if (node == nullptr) {
         return;
     }

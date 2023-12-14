@@ -2,7 +2,8 @@
 #include "CppUnitTest.h"
 #include "../ADS_2023_CA2_A_S_App/Tree.h"
 #include "../ADS_2023_CA2_A_S_App/TreeIterator.h"
-#include "../ADS_2023_CA2_A_S_App/XMLValidation.h"
+#include "../ADS_2023_CA2_A_S_App/XMLTreeCreator.h"
+#include "../ADS_2023_CA2_A_S_App/Functions.h"
 
 using namespace std;
 
@@ -384,5 +385,21 @@ namespace ADS2023CA2ASTests
 
 		//TEST_METHOD(TestLoadXMLData)
 		//I have no idea how to test this function
+
+		//FUNCTIONS TESTS
+
+		TEST_METHOD(CountAllItemsInXmlTree) 
+		{
+			// Arrange
+			string filename = "C:\\Users\\sKALa\\Repos\\ADS_2023_CA2_A_S\\ADS_2023_CA2_A_S_Tests\\XML.xml";
+			// Load XML data into a tree
+			Tree<string>* filesystemTree = loadXmlData(filename);
+
+			// Act
+			int itemCount = countAllItems(filesystemTree);
+
+			// Assert
+			Assert::AreEqual(18, itemCount); // Adjust the count based on the actual XML structure
+		}
 	};
 }
