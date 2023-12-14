@@ -1,7 +1,9 @@
 #pragma once
+
+//TAKEN FROM MOODLE
+
 template <class T> class DList;
 template <class T> class DListIterator;
-
 
 #pragma once
 

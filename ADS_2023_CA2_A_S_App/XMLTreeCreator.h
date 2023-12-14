@@ -9,11 +9,12 @@
 
 using namespace std;
 
-// Function to trim leading and trailing whitespaces from a string
+//Stage 1
+//Trimming any whitespaces from a string
 string trim(const string& str);
 
-// Function to load XML data into a tree
+//Loading XML into a tree data structure
 Tree<string>* loadXmlData(const string& filename);
 
-// Function to print the tree structure
+//Printing out the tree data structure
 void printTree(Tree<string>* node, int depth = 0);

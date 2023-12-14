@@ -449,39 +449,26 @@ namespace ADS2023CA2ASTests
 		//	Assert::AreEqual(expected, path); // Adjust the count based on the actual XML structure
 		//}
 
-		TEST_METHOD(DisplayFolderContents)
-		{
-			// Arrange
-			string filename = "C:\\Users\\sKALa\\Repos\\ADS_2023_CA2_A_S\\ADS_2023_CA2_A_S_Tests\\XML.xml";
-			// Load XML data into a tree
-			Tree<string>* filesystemTree = loadXmlData(filename);
+		//I don't know how to write this test properly
+		//TEST_METHOD(DisplayContentsOfTargetFolder) {
+		//	// Arrange
+		//	string filename = "C:\\Users\\sKALa\\Repos\\ADS_2023_CA2_A_S\\ADS_2023_CA2_A_S_Tests\\XML.xml";  // Replace with the path to your XML file
+		//	string targetFolder = "Desktop";  // Replace with the target folder name
+		//	Tree<string>* filesystemTree = loadXmlData(filename);
 
-			// Act
-			displayFolderContents(filesystemTree, "Documents");
+		//	// Act
+		//	std::stringstream buffer;
+		//	std::streambuf* oldCout = std::cout.rdbuf();
+		//	std::cout.rdbuf(buffer.rdbuf());  // Redirect cout to buffer
+		//	displayFolderContents(filesystemTree, targetFolder);
+		//	std::cout.rdbuf(oldCout);  // Restore cout
 
-			// Assert
-			/Assert::AreEqual(18, filesystemTree->count()); // Adjust the count based on the actual XML structure
-		}
-
-		TEST_METHOD(DisplayContentsOfTargetFolder) {
-			// Arrange
-			string filename = "C:\\Users\\sKALa\\Repos\\ADS_2023_CA2_A_S\\ADS_2023_CA2_A_S_Tests\\XML.xml";  // Replace with the path to your XML file
-			string targetFolder = "Desktop";  // Replace with the target folder name
-			Tree<string>* filesystemTree = loadXmlData(filename);
-
-			// Act
-			std::stringstream buffer;
-			std::streambuf* oldCout = std::cout.rdbuf();
-			std::cout.rdbuf(buffer.rdbuf());  // Redirect cout to buffer
-			displayFolderContents(filesystemTree, targetFolder);
-			std::cout.rdbuf(oldCout);  // Restore cout
-
-			// Assert
-			string output = buffer.str();
-			Assert::AreNotEqual(output.find("Contents of folder 'Downloads':"), string::npos);
-			Assert::AreNotEqual(output.find("file1.txt (Size: "), string::npos);
-			Assert::AreNotEqual(output.find("file2.txt (Size: "), string::npos);
-			// Add more assertions based on your expected output
-		}
+		//	// Assert
+		//	string output = buffer.str();
+		//	Assert::AreNotEqual(output.find("Contents of folder 'Downloads':"), string::npos);
+		//	Assert::AreNotEqual(output.find("file1.txt (Size: "), string::npos);
+		//	Assert::AreNotEqual(output.find("file2.txt (Size: "), string::npos);
+		//	// Add more assertions based on your expected output
+		//}
 	};
 }

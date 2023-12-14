@@ -1,5 +1,7 @@
 #pragma once
 
+//TAKEN FROM MOODLE
+
 template <class T>
 class DListNode
 {
