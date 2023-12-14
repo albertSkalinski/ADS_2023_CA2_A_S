@@ -8,34 +8,46 @@
 
 using namespace std;
 
-int countAllItems(Tree<string>* rootNode) {
-    if (rootNode == nullptr) {
+//Stage 2 a.
+//I didn't know how to determine the numbers of items in a specified directory so I just counted them all
+int countAllItems(Tree<string>* rootNode) 
+{
+    //Check if there's a root node
+    if (rootNode == nullptr) 
+    {
         return 0;
     }
 
-    int itemCount = 1; // Count the root node itself
+    //itemCount = 1, because counting the root node
+    int itemCount = 1;
 
     DListIterator<Tree<string>*> iter = rootNode->children->getIterator();
-    while (iter.isValid()) {
-        itemCount += countAllItems(iter.item()); // Recursively count items in the child subtree
-        iter.advance(); // Move to the next child
+    while (iter.isValid()) 
+    {
+        //Using recursion
+        itemCount += countAllItems(iter.item());
+        //Next child
+        iter.advance();
     }
 
     return itemCount;
 }
 
-int countBFS(Tree<string>* tree) {
+//Stage 2 b.
+int countBFS(Tree<string>* rootNode) 
+{
+    //Using a queue to store the nodes, based on code from Moodle
     int i = 0;
     queue<Tree<string>*> q;
 
-    q.push(tree);
-    while (!q.empty()) {
-        // Assuming each file has a length attribute
+    q.push(rootNode);
+    while (!q.empty()) 
+    {
         i += q.front()->data.size();
 
-        // Enqueue children for further traversal
         DListIterator<Tree<string>*> iter = q.front()->children->getIterator();
-        while (iter.isValid()) {
+        while (iter.isValid()) 
+        {
             q.push(iter.item());
             iter.advance();
         }
@@ -43,79 +55,109 @@ int countBFS(Tree<string>* tree) {
         q.pop();
     }
 
-    cout << "This is the amount of memory used: " << i << " B" << endl;
+    cout << "The amount of memory used: " << i << "B" << endl;
 
     return i;
 }
 
-// Function to prune the tree and remove empty folders
-void pruneEmptyFolders(Tree<string>* root) {
-    if (root == nullptr) {
+//Stage 2 c.
+void pruneEmptyFolders(Tree<string>* rootNode) 
+{
+    //I actually don't know if it works or not, there's no empty folders in the tree but it passed its test
+    if (rootNode == nullptr) 
+    {
         return;
     }
 
-    DListIterator<Tree<string>*> iter = root->children->getIterator();
-    while (iter.isValid()) {
-        pruneEmptyFolders(iter.item()); // Recursively prune children
+    DListIterator<Tree<string>*> iter = rootNode->children->getIterator();
 
-        if (iter.item()->children->size() == 0 && iter.item()->data.empty()) {
-            iter = root->children->remove(iter); // Remove empty folder
+    while (iter.isValid()) 
+    {
+        //Recursion again
+        pruneEmptyFolders(iter.item());
+
+        //Check if the size is 0 and there's no data assigned to it
+        if (iter.item()->children->size() == 0 && iter.item()->data.empty()) 
+        {
+            //removes the item
+            iter = rootNode->children->remove(iter);
         }
-        else {
+        //otherwise, goes to the next child
+        else 
+        {
             iter.advance();
         }
     }
 }
 
-bool findFileOrFolderDFS(Tree<string>* node, const string& target, std::vector<string>& path) {
-    if (node == nullptr) {
+//Stage 2 d.
+//Algorithm function
+//Uses a vector to store the path
+bool findFileOrFolderDFS(Tree<string>* rootNode, const string& target, vector<string>& path) 
+{
+    if (rootNode == nullptr) 
+    {
         return false;
     }
+    
+    //Saves the root node
+    path.push_back(rootNode->getData());
 
-    path.push_back(node->getData());
-
-    if (node->getData() == target) {
+    if (rootNode->getData() == target) 
+    {
         return true;
     }
 
-    DListIterator<Tree<string>*> iter = node->children->getIterator();
-    while (iter.isValid()) {
-        if (findFileOrFolderDFS(iter.item(), target, path)) {
+    DListIterator<Tree<string>*> iter = rootNode->children->getIterator();
+    while (iter.isValid()) 
+    {
+        //Recursion again to keep looking for the target
+        if (findFileOrFolderDFS(iter.item(), target, path)) 
+        {
             return true;
         }
         iter.advance();
     }
 
-    path.pop_back();  // Backtrack if the target is not found in this subtree
+    //Goes back if the target is not found
+    path.pop_back();
+
     return false;
 }
 
-vector<string> findFileOrFolder(Tree<string>* root, const string& target) {
+//Main function of the question
+vector<string> findFileOrFolder(Tree<string>* rootNode, const string& target) 
+{
     vector<string> path;
-    findFileOrFolderDFS(root, target, path);
+    findFileOrFolderDFS(rootNode, target, path);
     return path;
 }
 
-void displayFolderContents(Tree<string>* node, const string& targetFolder) {
-    if (node == nullptr) {
+//Stage 2 e.
+void displayFolderContents(Tree<string>* rootNode, const string& targetFolder) 
+{
+    if (rootNode == nullptr) 
+    {
         return;
     }
 
     // Check if the current node is the target folder
-    if (node->getData() == targetFolder) {
-        std::cout << "Contents of folder '" << targetFolder << "':" << std::endl;
+    if (rootNode->getData() == targetFolder) 
+    {
+        cout << "Contents of folder '" << targetFolder << "': " << endl;
 
-        // Display files within the target folder
-        DListIterator<Tree<string>*> iter = node->children->getIterator();
-        while (iter.isValid()) {
-            std::cout << "  - " << iter.item()->getData();
+        DListIterator<Tree<string>*> iter = rootNode->children->getIterator();
+        while (iter.isValid()) 
+        {
+            cout << "  - " << iter.item()->getData();
 
-            // If it's a file, print its size
-            if (iter.item()->getData().find("file") != std::string::npos) {
-                std::cout << " (Size: " << iter.item()->data.size() << " bytes)";
+            // If it's a file, print its size (checks if there's a dot in the name (file extension))
+            if (iter.item()->getData().find(".") != string::npos)
+            {
+                cout << " (Size: " << iter.item()->data.size() << "B)";
             }
 
-            std::cout << std::endl;
+            cout << endl;
 
             iter.advance();
         }
@@ -123,9 +165,10 @@ void displayFolderContents(Tree<string>* node, const string& targetFolder) {
         return;
     }
 
-    // Recursively display contents for children
-    DListIterator<Tree<string>*> iter = node->children->getIterator();
-    while (iter.isValid()) {
+    //Recursion once again, to keep looking for the target folder
+    DListIterator<Tree<string>*> iter = rootNode->children->getIterator();
+    while (iter.isValid()) 
+    {
         displayFolderContents(iter.item(), targetFolder);
         iter.advance();
     }

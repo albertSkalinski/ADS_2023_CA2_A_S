@@ -38,7 +38,7 @@ int main()
     }
     cout << endl;
 
-    string targetFolder = "Documents";
+    string targetFolder = "Downloads";
     displayFolderContents(filesystemTree, targetFolder);
 
     return 0;
