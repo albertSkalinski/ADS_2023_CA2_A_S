@@ -23,6 +23,8 @@ int main()
 
     cout << "Total number of items in the tree: " << totalItems << std::endl;
 
+    countBFS(filesystemTree);
+
 
     return 0;
 }

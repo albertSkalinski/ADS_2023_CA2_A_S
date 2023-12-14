@@ -401,5 +401,19 @@ namespace ADS2023CA2ASTests
 			// Assert
 			Assert::AreEqual(18, itemCount); // Adjust the count based on the actual XML structure
 		}
+
+		TEST_METHOD(CountBFSInXmlTree)
+		{
+			// Arrange
+			string filename = "C:\\Users\\sKALa\\Repos\\ADS_2023_CA2_A_S\\ADS_2023_CA2_A_S_Tests\\XML.xml";
+			// Load XML data into a tree
+			Tree<string>* filesystemTree = loadXmlData(filename);
+
+			// Act
+			int itemCount = countBFS(filesystemTree);
+
+			// Assert
+			Assert::AreEqual(158, itemCount); // Adjust the count based on the actual XML structure
+		}
 	};
 }

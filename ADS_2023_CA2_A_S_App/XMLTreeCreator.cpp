@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <stack>
+#include <queue>
 
 #include "DList.h"
 #include "Tree.h"
@@ -84,6 +85,8 @@ Tree<string>* loadXmlData(const string& filename) {
     file.close();
     return root;
 }
+
+
 
 // Function to print the tree structure
 void printTree(Tree<string>* node, int depth) {

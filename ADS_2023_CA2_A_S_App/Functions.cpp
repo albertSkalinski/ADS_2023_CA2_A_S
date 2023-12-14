@@ -2,6 +2,8 @@
 #include "TreeIterator.h"
 
 #include <string>
+#include <queue>
+#include <iostream>
 
 using namespace std;
 
@@ -19,4 +21,28 @@ int countAllItems(Tree<string>* rootNode) {
     }
 
     return itemCount;
+}
+
+int countBFS(Tree<string>* tree) {
+    int i = 0;
+    queue<Tree<string>*> q;
+
+    q.push(tree);
+    while (!q.empty()) {
+        // Assuming each file has a length attribute
+        i += q.front()->data.size();
+
+        // Enqueue children for further traversal
+        DListIterator<Tree<string>*> iter = q.front()->children->getIterator();
+        while (iter.isValid()) {
+            q.push(iter.item());
+            iter.advance();
+        }
+
+        q.pop();
+    }
+
+    cout << "This is the amount of memory used: " << i << " B" << endl;
+
+    return i;
 }
