@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <stack>
+#include <vector>
 
 #include "DList.h"
 #include "Tree.h"
@@ -26,6 +27,16 @@ int main()
     countBFS(filesystemTree);
 
     pruneEmptyFolders(filesystemTree);
+
+    string target = "pic1.jpg";
+    vector<string> path = findFileOrFolder(filesystemTree, target);
+
+    // Display the path
+    cout << "Path for '" << target << "': ";
+    for (const auto& item : path) {
+        std::cout << item << "/";
+    }
+    cout << endl;
 
 
     return 0;

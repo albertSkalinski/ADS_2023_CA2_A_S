@@ -5,6 +5,9 @@
 #include "../ADS_2023_CA2_A_S_App/XMLTreeCreator.h"
 #include "../ADS_2023_CA2_A_S_App/Functions.h"
 
+#include <string>
+#include <vector>
+
 using namespace std;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -429,5 +432,7 @@ namespace ADS2023CA2ASTests
 			// Assert
 			Assert::AreEqual(18, filesystemTree->count()); // Adjust the count based on the actual XML structure
 		}
+
+		//I did not know how to test this function either (DFS)
 	};
 }

@@ -4,6 +4,7 @@
 #include <string>
 #include <queue>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -64,4 +65,33 @@ void pruneEmptyFolders(Tree<string>* root) {
             iter.advance();
         }
     }
+}
+
+bool findFileOrFolderDFS(Tree<string>* node, const string& target, std::vector<string>& path) {
+    if (node == nullptr) {
+        return false;
+    }
+
+    path.push_back(node->getData());
+
+    if (node->getData() == target) {
+        return true;
+    }
+
+    DListIterator<Tree<string>*> iter = node->children->getIterator();
+    while (iter.isValid()) {
+        if (findFileOrFolderDFS(iter.item(), target, path)) {
+            return true;
+        }
+        iter.advance();
+    }
+
+    path.pop_back();  // Backtrack if the target is not found in this subtree
+    return false;
+}
+
+vector<string> findFileOrFolder(Tree<string>* root, const string& target) {
+    vector<string> path;
+    findFileOrFolderDFS(root, target, path);
+    return path;
 }
