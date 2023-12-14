@@ -1,1 +1,3 @@
-# ADS_2023_CA2_A_S_App
+# ADS_2023_CA2_A_S
+
+https://github.com/albertSkalinski/ADS_2023_CA2_A_S
